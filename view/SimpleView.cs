@@ -10,9 +10,14 @@ namespace BlackJack.view
 
         public void DisplayWelcomeMessage()
         {
+            char playLetter = view.InputLetters.toPlay;
+            char hitLetter = view.InputLetters.toHit;
+            char standLetter = view.InputLetters.toStand;
+            char quitLetter = view.InputLetters.toQuit;
+
             System.Console.Clear();
             System.Console.WriteLine("Hello Black Jack World");
-            System.Console.WriteLine("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
+            System.Console.WriteLine($"Type '{playLetter}' to Play, '{hitLetter}' to Hit, '{standLetter}' to Stand or '{quitLetter}' to Quit\n");
         }
 
         public char GetInput()
