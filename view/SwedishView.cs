@@ -5,18 +5,23 @@ using System.Text;
 
 namespace BlackJack.view
 {
-    class SwedishView : IView 
+    class SwedishView : IView
     {
         public void DisplayWelcomeMessage()
         {
+            char playLetter = view.InputLetters.toPlay;
+            char hitLetter = view.InputLetters.toHit;
+            char standLetter = view.InputLetters.toStand;
+            char quitLetter = view.InputLetters.toQuit;
+
             System.Console.Clear();
             System.Console.WriteLine("Hej Black Jack Världen");
             System.Console.WriteLine("----------------------");
-            System.Console.WriteLine("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
+            System.Console.WriteLine($"Skriv '{playLetter}' för att Spela, '{hitLetter}' för nytt kort, '{standLetter}' för att stanna '{quitLetter}' för att avsluta\n");
         }
         public char GetInput()
         {
-            return (char) System.Console.In.Read();
+            return (char)System.Console.In.Read();
         }
         public void DisplayCard(model.Card a_card)
         {
@@ -28,7 +33,7 @@ namespace BlackJack.view
             {
                 String[] colors = new String[(int)model.Card.Color.Count]
                     { "Hjärter", "Spader", "Ruter", "Klöver" };
-                String[] values = new String[(int)model.Card.Value.Count] 
+                String[] values = new String[(int)model.Card.Value.Count]
                     { "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio", "tio", "knekt", "dam", "kung", "ess" };
                 System.Console.WriteLine("{0} {1}", colors[(int)a_card.GetColor()], values[(int)a_card.GetValue()]);
             }
