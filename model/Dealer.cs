@@ -38,10 +38,7 @@ namespace BlackJack.model
         {
             if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver())
             {
-                Card c;
-                c = m_deck.GetCard();
-                c.Show(true);
-                a_player.DealCard(c);
+                a_player.DrawCardToHand(m_deck, true);
 
                 return true;
             }
@@ -74,6 +71,7 @@ namespace BlackJack.model
             {
                 return false;
             }
+
             return m_winnerRule.DoCheckWinner(this, a_player);
         }
 
