@@ -5,10 +5,40 @@ using System.Text;
 
 namespace BlackJack.model
 {
-    class Player
+    class Player : view.ISubject
     {
         private List<Card> m_hand = new List<Card>();
-        // private m_observer = new ;
+        // For the sake of simplicity, the Subject's state, essential to all
+        // subscribers, is stored in this variable.
+        public int State { get; set; } = -0;
+
+        // List of subscribers. In real life, the list of subscribers can be
+        // stored more comprehensively (categorized by event type, etc.).
+        private List<view.IObserver> _observers = new List<view.IObserver>();
+
+        // The subscription management methods.
+        public void Attach(view.IObserver observer)
+        {
+            Console.WriteLine("Subject: Attached an observer.");
+            this._observers.Add(observer);
+        }
+
+        public void Detach(view.IObserver observer)
+        {
+            this._observers.Remove(observer);
+            Console.WriteLine("Subject: Detached an observer.");
+        }
+
+        // Trigger an update in each subscriber.
+        public void Notify()
+        {
+            Console.WriteLine("Subject: Notifying observers...");
+
+            foreach (var observer in _observers)
+            {
+                observer.Update(this);
+            }
+        }
         public void DrawCardToHand(Deck a_deck, bool shouldShow)
         {
             Card c;

@@ -5,11 +5,8 @@ using System.Text;
 
 namespace BlackJack.view
 {
-    interface IObserver
+    public interface IObserver
     {
-        public void update(int delay)
-        {
-
-        }
+        void Update(ISubject subject);
     }
 }
