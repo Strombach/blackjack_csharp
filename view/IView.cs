@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BlackJack.view
 {
-    interface IView
+    interface IView: IObserver
     {
         void DisplayWelcomeMessage();
         char GetInput();

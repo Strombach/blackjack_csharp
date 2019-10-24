@@ -8,6 +8,7 @@ namespace BlackJack.model
     class Player
     {
         private List<Card> m_hand = new List<Card>();
+        // private m_observer = new ;
         public void DrawCardToHand(Deck a_deck, bool shouldShow)
         {
             Card c;
