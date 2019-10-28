@@ -8,45 +8,50 @@ namespace BlackJack.controller
     class PlayGame : model.IObserver
     {
         view.IView m_view;
-        public PlayGame(view.IView a_view)
+        model.Game m_game;
+        public PlayGame(model.Game a_game, view.IView a_view)
         {
             m_view = a_view;
+            m_game = a_game;
+
+            a_game.AddObservers(this);
         }
-        public bool Play(model.Game a_game)
+        public bool Play()
         {
-            a_game.AddObserver(this);
+            this.DisplayCards();
 
-            m_view.DisplayWelcomeMessage();
-
-            m_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
-            m_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
-
-            if (a_game.IsGameOver())
+            if (m_game.IsGameOver())
             {
-                m_view.DisplayGameOver(a_game.IsDealerWinner());
+                m_view.DisplayGameOver(m_game.IsDealerWinner());
             }
 
             char input = m_view.GetInput();
 
             if (input == view.InputLetters.toPlay)
             {
-                a_game.NewGame();
+                m_game.NewGame();
             }
             else if (input == view.InputLetters.toHit)
             {
-                a_game.Hit();
+                m_game.Hit();
             }
             else if (input == view.InputLetters.toStand)
             {
-                a_game.Stand();
+                m_game.Stand();
             }
 
             return input != view.InputLetters.toQuit;
         }
 
-        public void CardDrawn(model.Card card)
+        public void DisplayCards()
         {
-            m_view.DisplayCard(card);
+            System.Threading.Thread.Sleep(1000);
+
+            m_view.DisplayWelcomeMessage();
+
+            m_view.DisplayDealerHand(m_game.GetDealerHand(), m_game.GetDealerScore());
+            m_view.DisplayPlayerHand(m_game.GetPlayerHand(), m_game.GetPlayerScore());
+
         }
     }
 }

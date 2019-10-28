@@ -8,13 +8,24 @@ namespace BlackJack.model
     class Player
     {
         private List<Card> m_hand = new List<Card>();
+        public List<IObserver> m_observers;
+        public Player()
+        {
+            m_observers = new List<IObserver>();
+        }
+        public void AddObserver(IObserver a_observer)
+        {
+            m_observers.Add(a_observer);
+        }
         public void DrawCardToHand(Deck a_deck, bool shouldShow)
         {
             Card c;
 
             c = a_deck.GetCard();
             c.Show(shouldShow);
-            this.DealCard(c);
+            DealCard(c);
+
+            Notify();
         }
         public void DealCard(Card a_card)
         {
@@ -65,6 +76,13 @@ namespace BlackJack.model
             }
 
             return score;
+        }
+        private void Notify()
+        {
+            foreach (IObserver obs in m_observers)
+            {
+                obs.DisplayCards();
+            }
         }
     }
 }
