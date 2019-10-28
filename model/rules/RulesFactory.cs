@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BlackJack.model.rules
+﻿namespace BlackJack.model.rules
 {
     class RulesFactory
     {
@@ -11,13 +6,12 @@ namespace BlackJack.model.rules
         {
             return new Soft17HitStrategy();
         }
-
         public INewGameStrategy GetNewGameRule()
         {
             return new AmericanNewGameStrategy();
         }
-
-        public IWinnerStrategy GetWinnerRule () {
+        public IWinnerStrategy GetWinnerRule()
+        {
             return new BasicWinnerStrategy();
         }
     }

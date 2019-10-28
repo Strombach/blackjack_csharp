@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace BlackJack.model
 {
@@ -23,12 +20,10 @@ namespace BlackJack.model
         {
             return m_dealer.IsGameOver();
         }
-
         public bool IsDealerWinner()
         {
             return m_dealer.IsDealerWinner(m_player);
         }
-
         public bool NewGame()
         {
             return m_dealer.NewGame(m_player);
@@ -41,22 +36,18 @@ namespace BlackJack.model
         {
             return m_dealer.Stand();
         }
-
         public IEnumerable<Card> GetDealerHand()
         {
             return m_dealer.GetHand();
         }
-
         public IEnumerable<Card> GetPlayerHand()
         {
             return m_player.GetHand();
         }
-
         public int GetDealerScore()
         {
             return m_dealer.CalcScore();
         }
-
         public int GetPlayerScore()
         {
             return m_player.CalcScore();

@@ -8,5 +8,4 @@ namespace BlackJack.view
         Quit,
         Unknown
     }
-
 }

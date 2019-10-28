@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BlackJack.model
+﻿namespace BlackJack.model
 {
     class Dealer : Player
     {
@@ -13,7 +8,6 @@ namespace BlackJack.model
         private rules.INewGameStrategy m_newGameRule;
         private rules.IHitStrategy m_hitRule;
         private rules.IWinnerStrategy m_winnerRule;
-
 
         public Dealer(rules.RulesFactory a_rulesFactory)
         {

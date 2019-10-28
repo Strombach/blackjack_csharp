@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace BlackJack.view
 {
@@ -58,7 +56,6 @@ namespace BlackJack.view
                 System.Console.WriteLine("Du vann!");
             }
         }
-
         private void DisplayHand(String a_name, IEnumerable<model.Card> a_hand, int a_score)
         {
             System.Console.WriteLine("{0} Har: ", a_name);

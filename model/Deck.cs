@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BlackJack.model
 {
     class Deck
     {
         List<Card> m_cards;
-
         public Deck()
         {
             m_cards = new List<Card>();

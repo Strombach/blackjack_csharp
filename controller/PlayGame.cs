@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BlackJack.controller
+﻿namespace BlackJack.controller
 {
     class PlayGame : model.IObserver
     {
@@ -39,10 +34,8 @@ namespace BlackJack.controller
             {
                 m_game.Stand();
             }
-
             return input != view.InputLetters.toQuit;
         }
-
         public void DisplayCards()
         {
             System.Threading.Thread.Sleep(1000);
@@ -51,7 +44,6 @@ namespace BlackJack.controller
 
             m_view.DisplayDealerHand(m_game.GetDealerHand(), m_game.GetDealerScore());
             m_view.DisplayPlayerHand(m_game.GetPlayerHand(), m_game.GetPlayerScore());
-
         }
     }
 }

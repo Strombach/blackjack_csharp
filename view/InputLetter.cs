@@ -7,5 +7,4 @@ namespace BlackJack.view
         public const char toStand = 's';
         public const char toQuit = 'q';
     }
-
 }
