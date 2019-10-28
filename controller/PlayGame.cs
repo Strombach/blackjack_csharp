@@ -3,10 +3,12 @@
     class PlayGame : model.IObserver
     {
         view.IView m_view;
+        view.InputLetter m_inputLetter;
         model.Game m_game;
-        public PlayGame(model.Game a_game, view.IView a_view)
+        public PlayGame(model.Game a_game, view.IView a_view, view.InputLetter a_inputLetter)
         {
             m_view = a_view;
+            m_inputLetter = a_inputLetter;
             m_game = a_game;
 
             a_game.AddObservers(this);
@@ -22,19 +24,20 @@
 
             char input = m_view.GetInput();
 
-            if (input == view.InputLetters.toPlay)
+            if (input == m_inputLetter.getPlay())
             {
                 m_game.NewGame();
             }
-            else if (input == view.InputLetters.toHit)
+            else if (input == m_inputLetter.getHit())
             {
                 m_game.Hit();
             }
-            else if (input == view.InputLetters.toStand)
+            else if (input == m_inputLetter.getStand())
             {
                 m_game.Stand();
             }
-            return input != view.InputLetters.toQuit;
+
+            return input != m_inputLetter.getQuit();
         }
         public void DisplayCards()
         {

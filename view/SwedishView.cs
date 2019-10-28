@@ -7,10 +7,10 @@ namespace BlackJack.view
     {
         public void DisplayWelcomeMessage()
         {
-            char playLetter = view.InputLetters.toPlay;
-            char hitLetter = view.InputLetters.toHit;
-            char standLetter = view.InputLetters.toStand;
-            char quitLetter = view.InputLetters.toQuit;
+            char playLetter = view.InputLetter.toPlay;
+            char hitLetter = view.InputLetter.toHit;
+            char standLetter = view.InputLetter.toStand;
+            char quitLetter = view.InputLetter.toQuit;
 
             System.Console.Clear();
             System.Console.WriteLine("Hej Black Jack Världen");
