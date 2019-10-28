@@ -1,6 +1,6 @@
 ﻿namespace BlackJack.model.rules
 {
-    class BasicWinnerStrategy : IWinnerStrategy
+    class WinnerOnEqualStrategy : IWinnerStrategy
     {
         private const bool g_DealerWinsOnEqual = true;
         public bool DoCheckWinner(model.Dealer a_dealer, model.Player a_player)

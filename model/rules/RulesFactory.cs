@@ -12,7 +12,7 @@
         }
         public IWinnerStrategy GetWinnerRule()
         {
-            return new BasicWinnerStrategy();
+            return new WinnerOnEqualStrategy();
         }
     }
 }
