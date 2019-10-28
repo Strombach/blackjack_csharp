@@ -59,7 +59,6 @@ namespace BlackJack.view
             {
                 System.Console.WriteLine("You Won!");
             }
-            
         }
     }
 }
