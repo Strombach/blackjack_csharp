@@ -7,13 +7,6 @@ namespace BlackJack.view
 {
     class SwedishView : IView
     {
-        public void Update(ISubject player)
-        {
-            if ((player as model.Player).State == 0 || (player as model.Player).State >= 2)
-            {
-                Console.WriteLine("ConcreteObserverB: Reacted to the event.");
-            }
-        }
         public void DisplayWelcomeMessage()
         {
             char playLetter = view.InputLetters.toPlay;

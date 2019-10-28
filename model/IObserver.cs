@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BlackJack.view
+namespace BlackJack.model
 {
-    public interface IObserver
+    interface IObserver
     {
-        void Update(ISubject subject);
+        void CardDrawn(Card card);
     }
 }

@@ -5,21 +5,28 @@ using System.Text;
 
 namespace BlackJack.controller
 {
-    class PlayGame
+    class PlayGame : model.IObserver
     {
-        public bool Play(model.Game a_game, view.IView a_view)
+        view.IView m_view;
+        public PlayGame(view.IView a_view)
         {
-            a_view.DisplayWelcomeMessage();
-            
-            a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
-            a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
+            m_view = a_view;
+        }
+        public bool Play(model.Game a_game)
+        {
+            a_game.AddObserver(this);
+
+            m_view.DisplayWelcomeMessage();
+
+            m_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
+            m_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
 
             if (a_game.IsGameOver())
             {
-                a_view.DisplayGameOver(a_game.IsDealerWinner());
+                m_view.DisplayGameOver(a_game.IsDealerWinner());
             }
 
-            char input = a_view.GetInput();
+            char input = m_view.GetInput();
 
             if (input == view.InputLetters.toPlay)
             {
@@ -35,6 +42,11 @@ namespace BlackJack.controller
             }
 
             return input != view.InputLetters.toQuit;
+        }
+
+        public void CardDrawn(model.Card card)
+        {
+            m_view.DisplayCard(card);
         }
     }
 }

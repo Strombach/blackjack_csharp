@@ -7,13 +7,6 @@ namespace BlackJack.view
 {
     class SimpleView : IView
     {
-        public void Update(ISubject player)
-        {            
-            if ((player as model.Player).State < 3)
-            {
-                Console.WriteLine("ConcreteObserverA: Reacted to the event.");
-            }
-        }
         public void DisplayWelcomeMessage()
         {
             char playLetter = view.InputLetters.toPlay;
