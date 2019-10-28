@@ -31,7 +31,6 @@ namespace BlackJack.model
         {
             m_hand.Add(a_card);
         }
-
         public IEnumerable<Card> GetHand()
         {
             return m_hand.Cast<Card>();

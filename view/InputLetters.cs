@@ -1,6 +1,6 @@
 namespace BlackJack.view
 {
-    public static class InputLetters
+    public struct InputLetters
     {
         public const char toPlay = 'p';
         public const char toHit = 'h';
