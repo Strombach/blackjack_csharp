@@ -1,18 +1,18 @@
 ﻿namespace BlackJack.model.rules
 {
-    class RulesFactory
+  class RulesFactory
+  {
+    public IHitStrategy GetHitRule()
     {
-        public IHitStrategy GetHitRule()
-        {
-            return new Soft17HitStrategy();
-        }
-        public INewGameStrategy GetNewGameRule()
-        {
-            return new AmericanNewGameStrategy();
-        }
-        public IWinnerStrategy GetWinnerRule()
-        {
-            return new WinnerOnEqualStrategy();
-        }
+      return new Soft17HitStrategy();
     }
+    public INewGameStrategy GetNewGameRule()
+    {
+      return new AmericanNewGameStrategy();
+    }
+    public IWinnerStrategy GetWinnerRule()
+    {
+      return new PlayerWinsOnEqual();
+    }
+  }
 }
