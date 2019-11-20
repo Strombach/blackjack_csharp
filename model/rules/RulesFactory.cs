@@ -8,7 +8,7 @@
     }
     public INewGameStrategy GetNewGameRule()
     {
-      return new AmericanNewGameStrategy();
+      return new InternationalNewGameStrategy();
     }
     public IWinnerStrategy GetWinnerRule()
     {

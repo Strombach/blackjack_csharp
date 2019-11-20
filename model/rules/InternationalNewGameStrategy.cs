@@ -1,16 +1,16 @@
 ﻿namespace BlackJack.model.rules
 {
-    class InternationalNewGameStrategy : INewGameStrategy
+  class InternationalNewGameStrategy : INewGameStrategy
+  {
+    public bool NewGame(Dealer a_dealer, Player a_player)
     {
-        public bool NewGame(Deck a_deck, Dealer a_dealer, Player a_player)
-        {
-            a_player.DrawCardToHand(a_deck, true);
+      a_dealer.DrawCardToHand(a_player, true);
 
-            a_dealer.DrawCardToHand(a_deck, true);
+      a_dealer.DrawCardToHand(a_dealer, true);
 
-            a_player.DrawCardToHand(a_deck, true);
+      a_dealer.DrawCardToHand(a_player, true);
 
-            return true;
-        }
+      return true;
     }
+  }
 }

@@ -23,7 +23,7 @@
         m_deck = new Deck();
         ClearHand();
         a_player.ClearHand();
-        return m_newGameRule.NewGame(m_deck, this, a_player);
+        return m_newGameRule.NewGame(this, a_player);
       }
       return false;
     }
@@ -32,11 +32,22 @@
     {
       if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver())
       {
-        a_player.DrawCardToHand(m_deck, true);
+        DrawCardToHand(a_player, true);
 
         return true;
       }
       return false;
+    }
+
+    public void DrawCardToHand(Player a_player, bool shouldShow)
+    {
+      Card c;
+
+      c = m_deck.GetCard();
+      c.Show(shouldShow);
+      a_player.DealCard(c);
+
+      a_player.Notify();
     }
 
     public bool Stand()
@@ -47,9 +58,7 @@
         while (m_hitRule.DoHit(this))
         {
           m_hitRule.DoHit(this);
-          Card c = m_deck.GetCard();
-          c.Show(true);
-          DealCard(c);
+          DrawCardToHand(this, true);
         }
         return true;
       }

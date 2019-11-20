@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.0": []
   },
   "packageFolders": {
-    "C:\\Users\\denni\\.nuget\\packages\\": {}
+    "/home/strombach/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\denni\\1dv607\\blackjack_csharp\\blackjack.csproj",
+      "projectUniqueName": "/home/strombach/Develop/1dv607/new/blackjack_csharp/blackjack.csproj",
       "projectName": "blackjack",
-      "projectPath": "C:\\Users\\denni\\1dv607\\blackjack_csharp\\blackjack.csproj",
-      "packagesPath": "C:\\Users\\denni\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\denni\\1dv607\\blackjack_csharp\\obj\\",
+      "projectPath": "/home/strombach/Develop/1dv607/new/blackjack_csharp/blackjack.csproj",
+      "packagesPath": "/home/strombach/.nuget/packages/",
+      "outputPath": "/home/strombach/Develop/1dv607/new/blackjack_csharp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\denni\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/strombach/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
@@ -56,7 +56,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }
